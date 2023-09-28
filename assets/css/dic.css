@@ -1,0 +1,108 @@
+*{
+    font-family: "Poppins",sans-serif;
+    box-sizing: border-box;
+}
+body {
+background: linear-gradient(to right, rgba(204, 158, 247), rgba(156, 63, 243));
+background-repeat: no-repeat;
+animation: shiningBackground 4s infinite; /* Add animation property */
+}
+
+@keyframes shiningBackground {
+0% {
+background: linear-gradient(to right, rgba(204, 158, 247), rgba(164, 81, 243));
+}
+100% {
+background: linear-gradient(to right, rgb(164, 81, 243), rgba(204, 158, 247));
+}
+}
+
+.container{
+background-color: rgb(247, 245, 245);
+width: 90vmin;
+position: absolute;
+transform: translate(-50%,-50%);
+top:50%;
+left: 50%;
+padding: 80px 50px;
+border-radius: 10px;
+box-shadow: 0px 2px 40px  rgba(38, 33, 61,0.2);
+}
+.search-box{
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+.search-box input{
+padding: 5px;
+width: 70%;
+border: none;
+outline: none;
+border-bottom: 3px solid  rgb(204, 158, 247);
+font-size: 16px;
+}
+.search-box button {
+padding: 15px 0;
+width: 25%;
+background-color:  rgb(204, 158, 247);
+border: none;
+outline: none;
+color: white;
+border-radius: 5px;
+
+}
+.result{
+position:relative;
+}
+.result h3{
+font-size: 30px;
+color:#2513a9; 
+}
+.result .word{
+display: flex;
+justify-content: space-between;
+margin-top: 80px;
+}
+.result button{
+background-color: transparent;
+border: none;
+outline:none;
+font-size: 20px;
+}
+.result .details{
+display: flex;
+gap: 20px;
+color: rgb(204, 158, 247);
+margin: 5px 0 20px 0;
+font-size: 14px;
+}
+.meaning{
+color:#2513a9;
+}
+.example{
+color:#2513a9;
+font-style:italic;
+border-left: 5px solid rgb(204, 158, 247) ;
+padding-left: 20px;
+margin-top: 30px;
+}
+.error{
+margin:25px;
+font-size: 5px;
+}
+p{
+color: #f2f1f5;
+font-size: 25px;
+text-align: center;
+margin-top: 200px;
+}
+.fa-search {
+position: absolute;
+top: 50%;
+left: 55px; 
+transform: translateY(-50%);
+color:  rgb(187, 138, 232); 
+}
+#input-word{
+padding-left: 30px;
+}

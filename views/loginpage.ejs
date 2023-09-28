@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="/css/loginpage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div class="container">
+        <form  method="POST" action="/loginsubmit">
+        <div class="login">
+            <h2>Login</h2>
+            <p class="error"><%= error.invalid %></p>
+            <input name="Username" type="text" placeholder="Enter Name"><br>
+            <input name="email" type="email"  placeholder="Enter Email" ><br>
+            <input  name="password" type="password" placeholder="Enter password">
+            </div>
+        <div>
+            <p><a href="#" >Forgot password?</a></p>
+        </div>
+        <div>
+            <button class="submit" type="submit">LOGIN</button>
+        </div>
+        
+        <div><p class="a" style="font-weight: 500; padding-left: 60px;">Not a member? <a href="signuppage.ejs">Signup</a> now</p></div>
+    </form>
+    </div>
+    
+</body>
+</html>
