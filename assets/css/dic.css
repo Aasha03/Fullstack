@@ -106,3 +106,29 @@ color:  rgb(187, 138, 232);
 #input-word{
 padding-left: 30px;
 }
+.submit{
+    border-radius: 3px;
+    height: 30px;
+    width: 60px;
+    padding-top: 5px;
+    margin-top: 10px;
+    margin-right: 7px;
+    background-color:  #b364fc;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.submit a{
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+h2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right:90px;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 25px;
+}
