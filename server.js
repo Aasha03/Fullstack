@@ -2,19 +2,20 @@ var express=require("express")
 var app=express();
 var path=require("path")
 const bcrypt=require("bcrypt");
+const ejs = require('ejs');
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore} = require('firebase-admin/firestore');
 var serviceAccount = require("./dictionary.json");
 const bodyParser=require('body-parser');
-app.set('views', path.join(__dirname, 'views'));
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,"/assets")));
 app.use('/images', express.static('images'));
 app.set('view engine', 'ejs');
-
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded());
-const ejs = require('ejs');
+
 initializeApp({
   credential: cert(serviceAccount)
 });
@@ -28,13 +29,6 @@ app.get('/signup',function(req,res){
     error.emailExists=""
     res.render("signuppage",{error})
 })
-
-
-app.get('/login',function(req,res){
-   error={}
-   error.invalid=""
-    res.render("loginpage",{error})
-})
 app.get('/loginpage',function(req,res){
     error={}
     error.emailExists=""
@@ -44,6 +38,11 @@ app.get('/signuppage',function(req,res){
     error={}
     error.emailExists=""
     res.render("signuppage")
+})
+app.get('/login',function(req,res){
+   error={}
+   error.invalid=""
+    res.render("loginpage",{error})
 })
 
 app.post('/signupsubmit',function(req,res){
@@ -81,15 +80,17 @@ app.post('/loginsubmit',function(req,res){
     const { email, password } = req.body;
     db.collection("dictionary").where("email","==",email).get().then((docs)=>{
         if(docs.size>0){
-            const user = docs.docs[0].data();
-            const hashedPassword = user.password; 
+            const data = docs.docs[0].data();
+            val={}
+            const hashedPassword =data.password; 
             bcrypt.compare(password, hashedPassword, (err, result) => {
                 console.log(result)
               if (result) {
-                res.render("dic");
+                val.user=data.fullname;
+                res.render("dic",{val});
               } else {
                 error.invalid="Invalid login Credentials"
-                res.render("loginpage",{error})
+                res.render("loginpage",{error}) 
               }
             });
         }
